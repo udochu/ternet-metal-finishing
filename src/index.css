@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-offwhite text-charcoal font-sans antialiased;
+  }
+
+  /* Account for the sticky navbar height when jumping to anchors */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
